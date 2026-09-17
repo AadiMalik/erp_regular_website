@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Smart Mart — Fresh Groceries Delivered Fast</title>
+<meta name="description" content="Smart Mart is your modern online supermarket for fresh produce, dairy, bakery, beverages and everyday essentials — delivered fast.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛒</text></svg>">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+
+<link rel="stylesheet" href="assets/css/base.css">
+<link rel="stylesheet" href="assets/css/layout.css">
+<link rel="stylesheet" href="assets/css/components.css">
+<link rel="stylesheet" href="assets/css/animations.css">
+<link rel="stylesheet" href="assets/css/pages.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<div id="site-header"></div>
+
+<main id="main">
+
+  <!-- ============ HERO ============ -->
+  <section class="hero">
+    <span class="hero__blob b1"></span>
+    <span class="hero__blob b2"></span>
+    <div class="container">
+      <div class="hero__text">
+        <span class="hero__badge hero-anim-1"><i class="fa-solid fa-leaf"></i> 100% Fresh &amp; Quality Guaranteed</span>
+        <h1 class="hero-anim-2">Fresh groceries,<br>delivered <span class="text-gradient">right to your door.</span></h1>
+        <p class="lead hero-anim-3">Shop fruits, vegetables, dairy, bakery and everyday essentials from Smart Mart — hand-picked quality, unbeatable prices, delivered in as fast as 2 hours.</p>
+        <div class="hero__cta hero-anim-3">
+          <a href="shop.html" class="btn btn-primary btn-lg"><i class="fa-solid fa-basket-shopping"></i> Shop Now</a>
+          <a href="shop.html?category=fruits-vegetables" class="btn btn-outline btn-lg">Explore Fresh Produce</a>
+        </div>
+        <div class="hero__stats hero-anim-3">
+          <div><strong>12k+</strong><span>Happy Customers</span></div>
+          <div><strong>500+</strong><span>Fresh Products</span></div>
+          <div><strong>2 hrs</strong><span>Avg. Delivery Time</span></div>
+        </div>
+      </div>
+      <div class="hero__visual">
+        <div class="main-img hero-anim-img">
+          <img src="https://images.unsplash.com/photo-1618160702438-9b02ab6515c9?auto=format&fit=crop&w=900&h=1000&q=80" alt="Fresh vegetables and fruits basket">
+        </div>
+        <div class="hero__float-card card-1 float-slow">
+          <span class="ico"><i class="fa-solid fa-truck-fast"></i></span>
+          <div><strong>Fast Delivery</strong><span>Within 2 hours</span></div>
+        </div>
+        <div class="hero__float-card card-2 float-med">
+          <span class="ico"><i class="fa-solid fa-tags"></i></span>
+          <div><strong>Weekend Deal</strong><span>Up to 40% off</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SHOP BY CATEGORY ============ -->
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <span class="eyebrow"><i class="fa-solid fa-grip"></i> Browse Aisles</span>
+          <h2>Shop by Category</h2>
+          <p>Everything you need for the week, organised the way you shop.</p>
+        </div>
+        <a href="shop.html" class="btn btn-outline">View All Categories</a>
+      </div>
+      <div class="category-grid stagger" data-category-grid></div>
+    </div>
+  </section>
+
+  <!-- ============ FEATURED PRODUCTS ============ -->
+  <section class="section" style="background:var(--color-bg-soft)">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <span class="eyebrow"><i class="fa-solid fa-star"></i> Hand Picked</span>
+          <h2>Featured Products</h2>
+          <p>This week's staff picks, chosen for freshness and value.</p>
+        </div>
+      </div>
+      <div class="product-grid stagger" data-featured-grid>
+      </div>
+      <div class="load-more-wrap">
+        <a href="shop.html" class="btn btn-dark">Browse Full Shop <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ TRENDING NOW ============ -->
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <span class="eyebrow"><i class="fa-solid fa-fire"></i> Popular Right Now</span>
+          <h2>Trending Products</h2>
+        </div>
+        <div class="carousel-nav">
+          <button class="carousel-prev" aria-label="Previous"><i class="fa-solid fa-chevron-left"></i></button>
+          <button class="carousel-next" aria-label="Next"><i class="fa-solid fa-chevron-right"></i></button>
+        </div>
+      </div>
+      <div class="carousel-block">
+        <div class="swiper product-swiper" data-trending-carousel>
+          <div class="swiper-wrapper"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ DEALS BANNER + DISCOUNTED PRODUCTS ============ -->
+  <section class="section">
+    <div class="container">
+      <div class="deals-banner" data-reveal="zoom">
+        <div class="deals-banner__bg">
+          <img src="https://images.unsplash.com/photo-1610348725531-843dff563e2c?auto=format&fit=crop&w=1400&q=70" alt="">
+        </div>
+        <div class="deals-banner__content">
+          <span class="eyebrow">Limited Time</span>
+          <h2>Weekend Grocery Deals — Up to 40% Off</h2>
+          <p>Stock up on fresh produce, pantry staples and household essentials before the deal ends. New discounts every day.</p>
+          <div class="countdown" data-countdown>
+            <div><strong data-cd-d>02</strong><span>Days</span></div>
+            <div><strong data-cd-h>00</strong><span>Hours</span></div>
+            <div><strong data-cd-m>00</strong><span>Mins</span></div>
+            <div><strong data-cd-s>00</strong><span>Secs</span></div>
+          </div>
+          <a href="shop.html?filter=deal" class="btn btn-primary">Shop Fresh Deals <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+      </div>
+
+      <div class="section-head" style="margin-top:var(--sp-9)">
+        <div>
+          <span class="eyebrow"><i class="fa-solid fa-percent"></i> Save More Today</span>
+          <h2>Discounted Products</h2>
+        </div>
+      </div>
+      <div class="product-grid stagger" data-discounted-grid></div>
+    </div>
+  </section>
+
+  <!-- ============ NEW ARRIVALS ============ -->
+  <section class="section" style="background:var(--color-bg-soft)">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <span class="eyebrow"><i class="fa-solid fa-wand-magic-sparkles"></i> Just In</span>
+          <h2>New Arrivals</h2>
+        </div>
+        <div class="carousel-nav">
+          <button class="carousel-prev" aria-label="Previous"><i class="fa-solid fa-chevron-left"></i></button>
+          <button class="carousel-next" aria-label="Next"><i class="fa-solid fa-chevron-right"></i></button>
+        </div>
+      </div>
+      <div class="carousel-block">
+        <div class="swiper product-swiper" data-newarrivals-carousel>
+          <div class="swiper-wrapper"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ WHY SHOP WITH US ============ -->
+  <section class="section">
+    <div class="container">
+      <div class="section-head center" style="justify-content:center;flex-direction:column;text-align:center">
+        <span class="eyebrow"><i class="fa-solid fa-shield-heart"></i> The Smart Mart Promise</span>
+        <h2>Why Shop With Us</h2>
+      </div>
+      <div class="perks-grid stagger">
+        <div class="perk-card" data-reveal="up"><span class="ico"><i class="fa-solid fa-truck-fast"></i></span><h3>Fast Delivery</h3><p>Same-day and 2-hour express slots across the city.</p></div>
+        <div class="perk-card" data-reveal="up"><span class="ico"><i class="fa-solid fa-leaf"></i></span><h3>Fresh &amp; Quality</h3><p>Hand-inspected produce, sourced daily from trusted farms.</p></div>
+        <div class="perk-card" data-reveal="up"><span class="ico"><i class="fa-solid fa-lock"></i></span><h3>Secure Payment</h3><p>Encrypted checkout with every major payment method.</p></div>
+        <div class="perk-card" data-reveal="up"><span class="ico"><i class="fa-solid fa-rotate-left"></i></span><h3>Easy Returns</h3><p>Not happy? Free returns within 24 hours, no questions asked.</p></div>
+        <div class="perk-card" data-reveal="up"><span class="ico"><i class="fa-solid fa-headset"></i></span><h3>24/7 Support</h3><p>Real humans ready to help, any day of the week.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ BEST SELLERS ============ -->
+  <section class="section" style="background:var(--color-bg-soft)">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <span class="eyebrow"><i class="fa-solid fa-crown"></i> Customer Favourites</span>
+          <h2>Best Sellers</h2>
+        </div>
+      </div>
+      <div class="product-grid stagger" data-bestsellers-grid></div>
+    </div>
+  </section>
+
+  <!-- ============ SEASONAL / EDITORIAL ============ -->
+  <section class="section" id="about">
+    <div class="container">
+      <div class="editorial" data-reveal="up">
+        <div class="editorial__img"><img src="https://images.unsplash.com/photo-1601599561213-832382fd07ba?auto=format&fit=crop&w=900&q=80" alt="Seasonal fresh produce collection"></div>
+        <div class="editorial__content">
+          <span class="eyebrow" style="color:var(--color-primary)"><i class="fa-solid fa-sun"></i> Seasonal Picks</span>
+          <h2>This Season's Freshest Collection</h2>
+          <p>From vine-ripened tomatoes to crisp autumn greens — explore our curated seasonal collection, sourced at the peak of freshness from local growers.</p>
+          <a href="shop.html" class="btn btn-dark">Explore Collection <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ TESTIMONIALS ============ -->
+  <section class="section">
+    <div class="container">
+      <div class="section-head center" style="justify-content:center;flex-direction:column;text-align:center">
+        <span class="eyebrow"><i class="fa-solid fa-quote-left"></i> Loved By Shoppers</span>
+        <h2>What Our Customers Say</h2>
+      </div>
+      <div class="carousel-block">
+        <div class="swiper" data-testimonial-carousel>
+          <div class="swiper-wrapper" data-testimonial-wrapper></div>
+          <div class="swiper-pagination"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ NEWSLETTER ============ -->
+  <section class="section" style="padding-top:0">
+    <div class="container">
+      <div class="newsletter" data-reveal="zoom">
+        <div class="newsletter__text">
+          <h2>Get Fresh Deals in Your Inbox</h2>
+          <p>Subscribe for weekly offers, new arrivals and exclusive discounts.</p>
+        </div>
+        <form data-newsletter-form>
+          <input type="email" required placeholder="Enter your email address" aria-label="Email address">
+          <button type="submit" class="btn btn-dark">Subscribe</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<div id="site-footer"></div>
+<div class="toast-stack" id="toast-stack" aria-live="polite"></div>
+<div class="modal-overlay" id="modal-root"><div class="modal-box"></div></div>
+<div class="modal-overlay" id="lightbox-root"><div class="modal-box" style="max-width:1000px;background:transparent;box-shadow:none"></div></div>
+
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script type="module" src="assets/js/main.js"></script>
+<script type="module" src="assets/js/pages/home.js"></script>
+</body>
+</html>

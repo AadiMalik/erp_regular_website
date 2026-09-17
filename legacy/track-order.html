@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Track My Order — Smart Mart</title>
+<meta name="description" content="Track your Smart Mart order status with your order number and email — no sign-in required.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛒</text></svg>">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<link rel="stylesheet" href="assets/css/base.css">
+<link rel="stylesheet" href="assets/css/layout.css">
+<link rel="stylesheet" href="assets/css/components.css">
+<link rel="stylesheet" href="assets/css/animations.css">
+<link rel="stylesheet" href="assets/css/pages.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<div id="site-header"></div>
+
+<main id="main">
+  <div class="page-header">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="index.html">Home</a><span class="sep">/</span><span class="current">Track My Order</span>
+      </nav>
+      <h1>Track My Order</h1>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="container">
+      <div class="track-lookup" data-reveal="up">
+        <span class="branch-modal__icon" style="margin-inline:auto"><i class="fa-solid fa-truck-fast"></i></span>
+        <h2 style="margin-top:var(--sp-4)">Where's My Order?</h2>
+        <p class="text-muted">Enter your order number and the email used at checkout to see live status — no sign-in required.</p>
+
+        <form data-track-form novalidate>
+          <div class="field" data-field="orderNumber">
+            <label for="orderNumber">Order Number</label>
+            <input id="orderNumber" name="orderNumber" placeholder="e.g. SM-123456">
+            <span class="error-msg">Please enter your order number.</span>
+          </div>
+          <div class="field" data-field="email">
+            <label for="email">Email Address</label>
+            <input id="email" name="email" type="email" placeholder="jane@example.com">
+            <span class="error-msg">Please enter the email used at checkout.</span>
+          </div>
+          <button type="submit" class="btn btn-primary btn-block btn-lg"><i class="fa-solid fa-magnifying-glass"></i> Track Order</button>
+        </form>
+      </div>
+
+      <div class="track-result" data-track-result hidden>
+        <div class="account-card">
+          <div class="account-card__head">
+            <div>
+              <strong data-track-number style="font-size:var(--fs-md)">#SM-000000</strong>
+              <p data-track-placed style="margin-top:4px">Placed on —</p>
+            </div>
+            <div data-track-badge></div>
+          </div>
+          <div class="order-timeline" data-track-timeline></div>
+        </div>
+      </div>
+
+      <div class="no-results" data-track-empty hidden>
+        <i class="fa-solid fa-circle-exclamation"></i>
+        <h2>No matching order found</h2>
+        <p class="text-muted">Double-check your order number and email, or <a href="contact.html" style="color:var(--color-primary-dark);font-weight:700">contact support</a> for help.</p>
+      </div>
+    </div>
+  </div>
+</main>
+
+<div id="site-footer"></div>
+<div class="toast-stack" id="toast-stack" aria-live="polite"></div>
+
+<script type="module" src="assets/js/main.js"></script>
+<script type="module" src="assets/js/pages/track-order.js"></script>
+</body>
+</html>

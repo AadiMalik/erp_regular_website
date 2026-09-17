@@ -1,0 +1,64 @@
+/* ==========================================================================
+   Theme2 — "Vibrant Bazaar" — bold, colorful, energetic palette.
+   Scoped under [data-theme="theme2"] on <html>. See theme1.css for the
+   pattern this follows; theme2's own Header/Footer/Hero/ProductCard/
+   CategoryCard components (src/themes/theme2/components/) carry their own
+   scoped styles on top of these shared-page tokens.
+   ========================================================================== */
+
+[data-theme='theme2'] {
+  --color-primary: #7C3AED;
+  --color-primary-dark: #6D28D9;
+  --color-primary-darker: #5B21B6;
+  --color-primary-light: #F1E8FE;
+  --color-primary-lighter: #F8F3FF;
+
+  --color-secondary: #1E1533;
+  --color-accent: #FB923C;
+  --color-accent-dark: #EA580C;
+  --color-accent-light: #FFEDD9;
+  --color-gold: #F472B6;
+
+  --color-danger: #E11D48;
+  --color-danger-light: #FDE4EA;
+  --color-success: #16A34A;
+  --color-info: #2563EB;
+
+  --color-bg: #FFFFFF;
+  --color-bg-soft: #FAF7FF;
+  --color-bg-alt: #F4EEFC;
+  --color-surface: #FFFFFF;
+  --color-border: #EBE1FB;
+  --color-border-strong: #D6C4F7;
+
+  --color-text: #1E1533;
+  --color-text-soft: #4A3B66;
+  --color-text-muted: #7A6B96;
+  --color-text-faint: #AB9FC7;
+  --color-text-inverse: #FFFFFF;
+
+  --shadow-sm: 0 3px 10px rgba(124, 58, 237, 0.10);
+  --shadow-md: 0 10px 28px rgba(124, 58, 237, 0.16);
+  --shadow-lg: 0 24px 56px rgba(124, 58, 237, 0.22);
+  --shadow-glow: 0 14px 36px rgba(251, 146, 60, 0.32);
+
+  /* Typography */
+  --font-display: 'Outfit', 'Segoe UI', sans-serif;
+  --font-body: 'Rubik', 'Segoe UI', sans-serif;
+  --lh-heading: 1.1;
+  --lh-body: 1.6;
+
+  /* Shared-page controls */
+  --radius-btn: var(--radius-pill);
+  --radius-card: var(--radius-xl);
+  --radius-field: var(--radius-md);
+  --radius-panel: var(--radius-lg);
+  --shadow-card: var(--shadow-sm);
+  --btn-weight: 700;
+
+  /* Motion — snappier & bouncier than theme1 */
+  --ease-premium: var(--ease-spring);
+  --dur-fast: 150ms;
+  --dur-base: 260ms;
+  --dur-slow: 440ms;
+}

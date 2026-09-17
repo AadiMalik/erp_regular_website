@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About Us — Smart Mart</title>
+<meta name="description" content="Learn about Smart Mart's mission to deliver fresh groceries and everyday essentials, fast and reliably.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛒</text></svg>">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<link rel="stylesheet" href="assets/css/base.css">
+<link rel="stylesheet" href="assets/css/layout.css">
+<link rel="stylesheet" href="assets/css/components.css">
+<link rel="stylesheet" href="assets/css/animations.css">
+<link rel="stylesheet" href="assets/css/pages.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<div id="site-header"></div>
+
+<main id="main">
+  <div class="page-header">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="index.html">Home</a><span class="sep">/</span><span class="current">About Us</span>
+      </nav>
+      <h1>About Smart Mart</h1>
+      <p>Your everyday supermarket, online — fresh produce, pantry staples and household essentials, delivered fast.</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="container">
+      <div class="editorial" data-reveal="up">
+        <div class="editorial__img"><img src="https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=900&q=80" alt="Smart Mart store interior"></div>
+        <div class="editorial__content">
+          <span class="eyebrow" style="color:var(--color-primary)"><i class="fa-solid fa-seedling"></i> Our Story</span>
+          <h2>Fresh groceries, without the hassle.</h2>
+          <p>Smart Mart started with a simple idea: grocery shopping should be quick, honest and pleasant. What began as a single neighbourhood store has grown into a network of branches, each hand-picking fresh produce daily and getting it to your door in as little as two hours.</p>
+          <a href="shop.html" class="btn btn-dark">Start Shopping <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+      </div>
+
+      <div class="about-stats stagger">
+        <div data-reveal="up"><strong>12k+</strong><span>Happy Customers</span></div>
+        <div data-reveal="up"><strong>500+</strong><span>Fresh Products</span></div>
+        <div data-reveal="up"><strong>4</strong><span>Branch Locations</span></div>
+        <div data-reveal="up"><strong>2 hrs</strong><span>Avg. Delivery Time</span></div>
+      </div>
+
+      <div class="section-head center" style="justify-content:center;flex-direction:column;text-align:center">
+        <span class="eyebrow"><i class="fa-solid fa-heart"></i> What We Stand For</span>
+        <h2>Our Values</h2>
+      </div>
+      <div class="values-grid stagger">
+        <div class="perk-card" data-reveal="up"><span class="ico"><i class="fa-solid fa-leaf"></i></span><h3>Freshness First</h3><p>We source daily from trusted local farms and inspect every item before it ships.</p></div>
+        <div class="perk-card" data-reveal="up"><span class="ico"><i class="fa-solid fa-handshake"></i></span><h3>Honest Pricing</h3><p>No hidden fees, no surprise markups — just fair prices on everything we sell.</p></div>
+        <div class="perk-card" data-reveal="up"><span class="ico"><i class="fa-solid fa-truck-fast"></i></span><h3>Reliable Delivery</h3><p>Real-time order tracking and delivery windows we actually stick to.</p></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section" style="background:var(--color-bg-soft);padding-top:0">
+    <div class="container">
+      <div class="newsletter" data-reveal="zoom">
+        <div class="newsletter__text">
+          <h2>Ready to shop smarter?</h2>
+          <p>Browse our full range of fresh groceries and everyday essentials.</p>
+        </div>
+        <a href="shop.html" class="btn btn-dark">Shop Now</a>
+      </div>
+    </div>
+  </div>
+</main>
+
+<div id="site-footer"></div>
+<div class="toast-stack" id="toast-stack" aria-live="polite"></div>
+
+<script type="module" src="assets/js/main.js"></script>
+</body>
+</html>

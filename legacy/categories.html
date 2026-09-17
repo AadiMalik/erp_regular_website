@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shop by Category — Smart Mart</title>
+<meta name="description" content="Browse all Smart Mart categories — fresh produce, dairy, bakery, beverages, snacks and more.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛒</text></svg>">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<link rel="stylesheet" href="assets/css/base.css">
+<link rel="stylesheet" href="assets/css/layout.css">
+<link rel="stylesheet" href="assets/css/components.css">
+<link rel="stylesheet" href="assets/css/animations.css">
+<link rel="stylesheet" href="assets/css/pages.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<div id="site-header"></div>
+
+<main id="main">
+  <div class="page-header">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="index.html">Home</a><span class="sep">/</span><span class="current">Categories</span>
+      </nav>
+      <h1>Shop by Category</h1>
+      <p>Everything you need for the week, organised the way you shop.</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="container">
+      <div class="categories-full-grid stagger" data-categories-grid></div>
+    </div>
+  </div>
+</main>
+
+<div id="site-footer"></div>
+<div class="toast-stack" id="toast-stack" aria-live="polite"></div>
+
+<script type="module" src="assets/js/main.js"></script>
+<script type="module" src="assets/js/pages/categories.js"></script>
+</body>
+</html>

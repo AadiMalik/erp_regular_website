@@ -1,0 +1,111 @@
+<div class="topbar">
+  <div class="container">
+    <div class="topbar__links">
+      <span><i class="fa-solid fa-truck-fast"></i>&nbsp; Free delivery on orders over $50</span>
+    </div>
+    <div class="topbar__links">
+      <button class="branch-pill" data-branch-pill type="button" aria-haspopup="dialog">
+        <i class="fa-solid fa-location-dot"></i>
+        <span data-branch-pill-label>Select store</span>
+        <i class="fa-solid fa-chevron-down branch-pill__chev"></i>
+      </button>
+      <a href="help-center.html"><i class="fa-solid fa-circle-question"></i> Help Center</a>
+    </div>
+  </div>
+</div>
+
+<header class="site-header" id="siteHeaderEl">
+  <div class="container header-inner">
+    <a href="index.html" class="logo">
+      <span class="logo__mark"><i class="fa-solid fa-basket-shopping"></i></span>
+      <span class="logo-text">Smart<span>Mart</span></span>
+    </a>
+
+    <nav class="main-nav" aria-label="Main">
+      <a href="index.html" data-nav="home">Home</a>
+      <a href="shop.html" data-nav="shop">Shop</a>
+      <div class="has-mega">
+        <a href="shop.html" data-nav="categories">Categories <i class="fa-solid fa-chevron-down" style="font-size:.6rem"></i></a>
+        <div class="mega-menu" data-mega-categories></div>
+      </div>
+      <a href="shop.html?filter=deal">Deals</a>
+      <a href="about.html" data-nav="about">About</a>
+      <a href="contact.html" data-nav="contact">Contact</a>
+    </nav>
+
+    <div class="header-actions">
+      <button class="header-action" data-search-toggle aria-label="Toggle search" aria-expanded="false">
+        <i class="fa-solid fa-magnifying-glass"></i>
+      </button>
+      <button class="header-action" data-wishlist-toggle aria-label="Wishlist">
+        <i class="fa-regular fa-heart"></i>
+        <span class="count" data-wishlist-count>0</span>
+      </button>
+      <div class="dropdown" data-account-dropdown>
+        <button class="header-action" data-account-toggle aria-label="Account">
+          <i class="fa-regular fa-user"></i>
+        </button>
+        <div class="dropdown__menu" data-account-menu></div>
+      </div>
+      <a class="header-action" href="cart.html" aria-label="Cart" data-header-cart-icon>
+        <i class="fa-solid fa-cart-shopping"></i>
+        <span class="count" data-cart-count>0</span>
+      </a>
+      <button class="hamburger" data-drawer-toggle aria-label="Toggle menu"><span></span></button>
+    </div>
+  </div>
+
+  <div class="search-panel" data-search-panel>
+    <div class="container search-panel__inner">
+      <form role="search" data-search-form autocomplete="off">
+        <i class="fa-solid fa-magnifying-glass search-panel__icon"></i>
+        <input type="search" name="q" placeholder="Search for fruits, snacks, dairy, brands…" aria-label="Search products" data-search-input spellcheck="false" autocomplete="off">
+        <button type="submit" class="btn btn-primary btn-sm">Search</button>
+      </form>
+      <button class="search-panel__close" data-search-close aria-label="Close search"><i class="fa-solid fa-xmark"></i></button>
+      <div class="search-suggest" data-search-suggest></div>
+    </div>
+  </div>
+</header>
+
+<div class="drawer-overlay" data-drawer-overlay></div>
+
+<aside class="mobile-drawer" data-mobile-drawer aria-label="Mobile menu">
+  <div class="mobile-drawer__head">
+    <a href="index.html" class="logo">
+      <span class="logo__mark"><i class="fa-solid fa-basket-shopping"></i></span>
+      <span>Smart<span style="color:var(--color-primary)">Mart</span></span>
+    </a>
+    <button class="btn-icon" data-drawer-close aria-label="Close menu"><i class="fa-solid fa-xmark"></i></button>
+  </div>
+  <button class="mobile-drawer__branch" data-branch-pill-mobile type="button">
+    <i class="fa-solid fa-location-dot"></i>
+    <span>Delivering from <strong data-branch-pill-label>Select store</strong></span>
+    <i class="fa-solid fa-chevron-right"></i>
+  </button>
+  <nav class="mobile-drawer__nav">
+    <a href="index.html">Home <i class="fa-solid fa-chevron-right"></i></a>
+    <a href="shop.html">Shop <i class="fa-solid fa-chevron-right"></i></a>
+    <a href="categories.html">Categories <i class="fa-solid fa-chevron-right"></i></a>
+    <a href="shop.html?filter=deal">Deals <i class="fa-solid fa-chevron-right"></i></a>
+    <a href="about.html">About <i class="fa-solid fa-chevron-right"></i></a>
+    <a href="contact.html">Contact <i class="fa-solid fa-chevron-right"></i></a>
+    <a href="cart.html">Cart <i class="fa-solid fa-chevron-right"></i></a>
+  </nav>
+  <div class="mobile-drawer__cats">
+    <h4>Shop by Category</h4>
+    <div data-mobile-categories></div>
+  </div>
+  <div class="mobile-drawer__foot" data-mobile-auth-foot></div>
+</aside>
+
+<aside class="drawer-right" data-wishlist-drawer aria-label="Wishlist">
+  <div class="mobile-drawer__head">
+    <strong><i class="fa-solid fa-heart" style="color:var(--color-danger)"></i>&nbsp; My Wishlist</strong>
+    <button class="btn-icon" data-wishlist-close aria-label="Close wishlist"><i class="fa-solid fa-xmark"></i></button>
+  </div>
+  <div style="padding: var(--sp-5); overflow-y:auto; flex:1;" data-wishlist-items></div>
+  <div style="padding: var(--sp-5); border-top:1px solid var(--color-border)">
+    <a href="wishlist.html" class="btn btn-outline btn-block">View Full Wishlist</a>
+  </div>
+</aside>

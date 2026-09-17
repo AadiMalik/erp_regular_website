@@ -1,0 +1,61 @@
+/* ==========================================================================
+   Theme1 — "Classic Market" — fresh & trust color palette (today's design,
+   preserved as-is). Scoped under [data-theme="theme1"] on <html>. This is
+   the seam the admin's ERP theme selection swaps: dropping in another
+   [data-theme="..."] block here (or a sibling file imported in main.js) adds
+   a new theme without touching any component or the token scale above.
+   Also duplicated on :root so unstyled/pre-hydration paint still has values.
+   ========================================================================== */
+
+:root,
+[data-theme='theme1'] {
+  --color-primary: #1E9E5A;
+  --color-primary-dark: #157A45;
+  --color-primary-darker: #0E5C33;
+  --color-primary-light: #E7F8EE;
+  --color-primary-lighter: #F3FBF6;
+
+  --color-secondary: #0B3D2E;
+  --color-accent: #FF6B35;
+  --color-accent-dark: #E1531F;
+  --color-accent-light: #FFEDE4;
+  --color-gold: #FFB020;
+
+  --color-danger: #E5484D;
+  --color-danger-light: #FDECEC;
+  --color-success: #1E9E5A;
+  --color-info: #2E8AE6;
+
+  --color-bg: #FFFFFF;
+  --color-bg-soft: #F7FAF8;
+  --color-bg-alt: #F3F6F4;
+  --color-surface: #FFFFFF;
+  --color-border: #E7ECE9;
+  --color-border-strong: #D3DBD6;
+
+  --color-text: #16241C;
+  --color-text-soft: #38493F;
+  --color-text-muted: #6B7B72;
+  --color-text-faint: #9AA9A1;
+  --color-text-inverse: #FFFFFF;
+
+  /* Shadow (tinted per-theme so it reads correctly against the theme's bg) */
+  --shadow-sm: 0 2px 8px rgba(16, 34, 24, 0.06);
+  --shadow-md: 0 8px 24px rgba(16, 34, 24, 0.08);
+  --shadow-lg: 0 20px 48px rgba(16, 34, 24, 0.14);
+  --shadow-glow: 0 12px 32px rgba(30, 158, 90, 0.22);
+
+  /* Typography */
+  --font-display: 'Poppins', 'Segoe UI', sans-serif;
+  --font-body: 'Plus Jakarta Sans', 'Segoe UI', sans-serif;
+  --lh-heading: 1.2;
+  --lh-body: 1.55;
+
+  /* Shared-page controls (buttons/cards/fields on Shop/Cart/Checkout/etc.) */
+  --radius-btn: var(--radius-pill);
+  --radius-card: var(--radius-lg);
+  --radius-field: var(--radius-sm);
+  --radius-panel: var(--radius-md);
+  --shadow-card: var(--shadow-sm);
+  --btn-weight: 600;
+}

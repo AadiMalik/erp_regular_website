@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title data-page-title>Product — Smart Mart</title>
+<meta name="description" content="View product details, pricing, variations and reviews at Smart Mart.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛒</text></svg>">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<link rel="stylesheet" href="assets/css/base.css">
+<link rel="stylesheet" href="assets/css/layout.css">
+<link rel="stylesheet" href="assets/css/components.css">
+<link rel="stylesheet" href="assets/css/animations.css">
+<link rel="stylesheet" href="assets/css/pages.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<div id="site-header"></div>
+
+<main id="main">
+  <div class="page-header" style="padding-block:var(--sp-4)">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Breadcrumb" data-pd-breadcrumb>
+        <a href="index.html">Home</a><span class="sep">/</span><a href="shop.html">Shop</a>
+      </nav>
+    </div>
+  </div>
+
+  <div class="section" style="padding-top:var(--sp-6)">
+    <div class="container">
+      <div class="product-detail" data-pd-root>
+        <div class="pd-gallery" data-pd-gallery></div>
+        <div class="pd-info" data-pd-info></div>
+      </div>
+
+      <div class="pd-tabs-section" data-reveal="up">
+        <div class="tabs__list" role="tablist">
+          <button class="active" data-tab="description">Description</button>
+          <button data-tab="specs">Specifications</button>
+          <button data-tab="reviews">Reviews</button>
+          <button data-tab="delivery">Delivery &amp; Returns</button>
+        </div>
+        <div class="tabs__panel active" data-tab-panel="description"></div>
+        <div class="tabs__panel" data-tab-panel="specs"></div>
+        <div class="tabs__panel" data-tab-panel="reviews"></div>
+        <div class="tabs__panel" data-tab-panel="delivery"></div>
+      </div>
+
+      <div class="section-head related-title">
+        <div>
+          <span class="eyebrow"><i class="fa-solid fa-layer-group"></i> You Might Also Like</span>
+          <h2>Related Products</h2>
+        </div>
+      </div>
+      <div class="product-grid stagger" data-related-grid></div>
+    </div>
+  </div>
+</main>
+
+<div id="site-footer"></div>
+<div class="toast-stack" id="toast-stack" aria-live="polite"></div>
+<div class="modal-overlay" id="modal-root"><div class="modal-box"></div></div>
+<div class="modal-overlay" id="lightbox-root"><div class="modal-box" style="max-width:1000px;background:transparent;box-shadow:none"></div></div>
+
+<script type="module" src="assets/js/main.js"></script>
+<script type="module" src="assets/js/pages/product.js"></script>
+</body>
+</html>

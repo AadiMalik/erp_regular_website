@@ -1,0 +1,84 @@
+/* ==========================================================================
+   Theme6 — "Bazaar Bento" — vibrant modern marketplace, playful bento
+   layout, app-style bottom nav on mobile. Scoped under [data-theme="theme6"]
+   on <html>. Pattern follows theme1.css; theme6's own
+   Header/Footer/Hero/ProductCard/CategoryCard components
+   (src/themes/theme6/components/) carry their own scoped styles on top of
+   these shared-page tokens.
+   ========================================================================== */
+
+[data-theme='theme6'] {
+  --color-primary: #7C3AED;
+  --color-primary-dark: #6D28D9;
+  --color-primary-darker: #5B21B6;
+  --color-primary-light: #EDE4FD;
+  --color-primary-lighter: #F7F3FE;
+
+  --color-secondary: #4C1D95;
+  --color-accent: #16A34A;
+  --color-accent-dark: #15803D;
+  --color-accent-light: #DCFCE7;
+  --color-gold: #F59E0B;
+
+  --color-danger: #E11D48;
+  --color-danger-light: #FCE4EA;
+  --color-success: #16A34A;
+  --color-info: #2563EB;
+
+  --color-bg: #FBF9FF;
+  --color-bg-soft: #F3ECFE;
+  --color-bg-alt: #ECE2FC;
+  --color-surface: #FFFFFF;
+  --color-border: #E3D6FB;
+  --color-border-strong: #C9B3F5;
+
+  --color-text: #2E1065;
+  --color-text-soft: #4C1D95;
+  --color-text-muted: #6B5B95;
+  --color-text-faint: #9A8CC0;
+  --color-text-inverse: #FBF9FF;
+
+  --shadow-sm: 0 3px 10px rgba(124, 58, 237, 0.08);
+  --shadow-md: 0 14px 32px rgba(124, 58, 237, 0.16);
+  --shadow-lg: 0 26px 56px rgba(124, 58, 237, 0.22);
+  --shadow-glow: 0 12px 30px rgba(124, 58, 237, 0.35);
+
+  /* Typography */
+  --font-display: 'Outfit', 'Segoe UI', sans-serif;
+  --font-body: 'Work Sans', 'Segoe UI', sans-serif;
+  --lh-heading: 1.1;
+  --lh-body: 1.6;
+
+  /* Shared-page controls — big rounded bento chrome */
+  --radius-btn: var(--radius-pill);
+  --radius-card: 24px;
+  --radius-field: 14px;
+  --radius-panel: 20px;
+  --shadow-card: var(--shadow-sm);
+  --btn-weight: 700;
+
+  /* Motion — bouncy */
+  --ease-premium: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --dur-fast: 180ms;
+  --dur-base: 340ms;
+  --dur-slow: 560ms;
+
+  --container-max: 1320px;
+  --bottom-nav-h: 66px;
+}
+
+/* Clear the fixed app-style bottom tab bar (theme6 Header.vue) on mobile. */
+@media (max-width: 900px) {
+  html[data-theme='theme6'] body { padding-bottom: var(--bottom-nav-h); }
+}
+
+/* Category rail — horizontal scroll-snap chips instead of a static grid,
+   matching theme6's marketplace-app presentation everywhere CategoryGrid is
+   used (Home, Categories page). */
+[data-theme='theme6'] .category-grid {
+  display: flex; gap: var(--sp-4); overflow-x: auto; scroll-snap-type: x mandatory;
+  padding-bottom: var(--sp-2);
+}
+[data-theme='theme6'] .category-grid > * { flex: 0 0 168px; scroll-snap-align: start; }
+
+[data-theme='theme6'] .product-grid { gap: var(--sp-6); }

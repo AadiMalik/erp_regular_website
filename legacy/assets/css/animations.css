@@ -1,0 +1,93 @@
+/* ==========================================================================
+   Smart Mart — Scroll Reveal & Motion Utilities
+   Driven by core/reveal.js (IntersectionObserver) adding `.in-view`
+   ========================================================================== */
+
+[data-reveal] {
+  opacity: 0;
+  transition: opacity var(--dur-slow) var(--ease-premium), transform var(--dur-slow) var(--ease-premium);
+  transition-delay: var(--reveal-delay, 0ms);
+}
+[data-reveal="up"] { transform: translateY(36px); }
+[data-reveal="down"] { transform: translateY(-36px); }
+[data-reveal="left"] { transform: translateX(40px); }
+[data-reveal="right"] { transform: translateX(-40px); }
+[data-reveal="zoom"] { transform: scale(0.92); }
+[data-reveal="mask"] { transform: translateY(0); clip-path: inset(0 0 100% 0); opacity: 1; }
+
+[data-reveal].in-view {
+  opacity: 1;
+  transform: none;
+  clip-path: inset(0 0 0% 0);
+}
+
+/* Staggered groups: children get incrementing delay via inline style set by JS */
+.stagger > * { }
+
+@keyframes floatY {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-14px); }
+}
+@keyframes floatX {
+  0%, 100% { transform: translateX(0) rotate(0deg); }
+  50% { transform: translateX(8px) rotate(2deg); }
+}
+.float-slow { animation: floatY 6s ease-in-out infinite; }
+.float-med { animation: floatY 4.2s ease-in-out infinite; }
+.float-x { animation: floatX 5.5s ease-in-out infinite; }
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(14px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes scaleIn { from { opacity: 0; transform: scale(0.9); } to { opacity: 1; transform: scale(1); } }
+
+@keyframes spin { to { transform: rotate(360deg); } }
+.spin { animation: spin 900ms linear infinite; }
+
+@keyframes ping {
+  0% { transform: scale(1); opacity: 1; }
+  75%, 100% { transform: scale(1.9); opacity: 0; }
+}
+.cart-bump { animation: cartBump 420ms var(--ease-premium); }
+@keyframes cartBump {
+  0% { transform: scale(1); }
+  35% { transform: scale(1.35) rotate(-8deg); }
+  60% { transform: scale(0.95) rotate(4deg); }
+  100% { transform: scale(1) rotate(0); }
+}
+.count-pop { animation: countPop 320ms var(--ease-premium); }
+@keyframes countPop { 0% { transform: scale(0.4); opacity:0; } 100% { transform: scale(1); opacity:1; } }
+
+/* Hero entrance */
+.hero-anim-1 { animation: fadeUp 700ms var(--ease-premium) 100ms both; }
+.hero-anim-2 { animation: fadeUp 700ms var(--ease-premium) 260ms both; }
+.hero-anim-3 { animation: fadeUp 700ms var(--ease-premium) 420ms both; }
+.hero-anim-img { animation: heroImgIn 900ms var(--ease-premium) 200ms both; }
+@keyframes heroImgIn {
+  from { opacity: 0; transform: scale(1.08) translateY(24px); clip-path: inset(8% 8% 8% 8% round 28px); }
+  to { opacity: 1; transform: scale(1) translateY(0); clip-path: inset(0% 0% 0% 0% round 28px); }
+}
+
+/* Page transition fade for content swap (shop/product loading) */
+.fade-swap { animation: fadeIn var(--dur-base) var(--ease-out); }
+
+/* Animated gradient (backs .text-gradient + gradient panels) */
+@keyframes gradientShift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+.gradient-anim { background-size: 200% 200%; animation: gradientShift 8s ease-in-out infinite; }
+
+/* Soft drifting blur blobs (hero background accents) */
+@keyframes blobDrift {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(24px, -20px) scale(1.08); }
+}
+
+/* Gentle attention pulse (sale/promo badges) */
+@keyframes softPulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(255, 107, 53, 0.45); }
+  50% { box-shadow: 0 0 0 7px rgba(255, 107, 53, 0); }
+}

@@ -1,0 +1,68 @@
+/* ==========================================================================
+   Theme4 — "Fresh Block" — bold editorial/brutalist grocery, block layout.
+   Scoped under [data-theme="theme4"] on <html>. Pattern follows theme1.css;
+   theme4's own Header/Footer/Hero/ProductCard/CategoryCard components
+   (src/themes/theme4/components/) carry their own scoped styles on top of
+   these shared-page tokens.
+   ========================================================================== */
+
+[data-theme='theme4'] {
+  --color-primary: #0F7A3D;
+  --color-primary-dark: #0B5C2E;
+  --color-primary-darker: #073D1F;
+  --color-primary-light: #DFF3E4;
+  --color-primary-lighter: #F1FAF3;
+
+  --color-secondary: #111827;
+  --color-accent: #FF5722;
+  --color-accent-dark: #D8451A;
+  --color-accent-light: #FFE4DA;
+  --color-gold: #FFC107;
+
+  --color-danger: #DC2626;
+  --color-danger-light: #FBE3E3;
+  --color-success: #0F7A3D;
+  --color-info: #2563EB;
+
+  --color-bg: #FBFAF7;
+  --color-bg-soft: #F3F1EA;
+  --color-bg-alt: #ECE9DF;
+  --color-surface: #FFFFFF;
+  --color-border: #111827;
+  --color-border-strong: #111827;
+
+  --color-text: #111827;
+  --color-text-soft: #1F2937;
+  --color-text-muted: #4B5563;
+  --color-text-faint: #6B7280;
+  --color-text-inverse: #FBFAF7;
+
+  --shadow-sm: 3px 3px 0 rgba(17, 24, 39, 0.9);
+  --shadow-md: 5px 5px 0 rgba(17, 24, 39, 0.95);
+  --shadow-lg: 8px 8px 0 rgba(17, 24, 39, 1);
+  --shadow-glow: 0 10px 26px rgba(15, 122, 61, 0.3);
+  --shadow-hard: 5px 5px 0 var(--color-secondary);
+  --shadow-hard-accent: 5px 5px 0 var(--color-accent);
+
+  /* Typography */
+  --font-display: 'Rubik', 'Segoe UI', sans-serif;
+  --font-body: 'Nunito Sans', 'Segoe UI', sans-serif;
+  --lh-heading: 1.05;
+  --lh-body: 1.6;
+
+  /* Shared-page controls — hard edges, no pill softness */
+  --radius-btn: 10px;
+  --radius-card: 12px;
+  --radius-field: 8px;
+  --radius-panel: 10px;
+  --shadow-card: var(--shadow-sm);
+  --btn-weight: 800;
+
+  /* Motion — snappy, punchy */
+  --ease-premium: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --dur-fast: 140ms;
+  --dur-base: 260ms;
+  --dur-slow: 420ms;
+
+  --container-max: 1360px;
+}

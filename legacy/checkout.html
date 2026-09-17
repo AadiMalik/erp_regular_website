@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Checkout — Smart Mart</title>
+<meta name="description" content="Secure checkout at Smart Mart — delivery details, payment method and order review.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛒</text></svg>">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<link rel="stylesheet" href="assets/css/base.css">
+<link rel="stylesheet" href="assets/css/layout.css">
+<link rel="stylesheet" href="assets/css/components.css">
+<link rel="stylesheet" href="assets/css/animations.css">
+<link rel="stylesheet" href="assets/css/pages.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<div id="site-header"></div>
+
+<main id="main">
+  <div class="page-header">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="index.html">Home</a><span class="sep">/</span><a href="cart.html">Cart</a><span class="sep">/</span><span class="current">Checkout</span>
+      </nav>
+      <h1>Checkout</h1>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="container">
+
+      <div data-checkout-empty hidden class="cart-empty">
+        <i class="fa-solid fa-cart-shopping"></i>
+        <h2>Your cart is empty</h2>
+        <p class="text-muted" style="margin:var(--sp-3) 0 var(--sp-5)">Add some products before checking out.</p>
+        <a href="shop.html" class="btn btn-primary">Start Shopping</a>
+      </div>
+
+      <div data-checkout-content>
+        <div class="checkout-steps">
+          <div class="step active"><span class="num">1</span> Delivery</div>
+          <div class="line"></div>
+          <div class="step active"><span class="num">2</span> Payment</div>
+          <div class="line"></div>
+          <div class="step active"><span class="num">3</span> Review</div>
+        </div>
+
+        <form class="checkout-layout" data-checkout-form novalidate>
+          <div>
+            <div class="checkout-section">
+              <h3><i class="fa-solid fa-id-card"></i> Customer Information</h3>
+              <div class="field-row">
+                <div class="field" data-field="fullName">
+                  <label for="fullName">Full Name</label>
+                  <input id="fullName" name="fullName" type="text" placeholder="Jane Doe">
+                  <span class="error-msg">Please enter your full name.</span>
+                </div>
+                <div class="field" data-field="email">
+                  <label for="email">Email Address</label>
+                  <input id="email" name="email" type="email" placeholder="jane@example.com">
+                  <span class="error-msg">Please enter a valid email address.</span>
+                </div>
+              </div>
+              <div class="field" data-field="phone">
+                <label for="phone">Phone Number</label>
+                <input id="phone" name="phone" type="tel" placeholder="+1 (555) 010-2024">
+                <span class="error-msg">Please enter a valid phone number.</span>
+              </div>
+            </div>
+
+            <div class="checkout-section">
+              <h3><i class="fa-solid fa-location-dot"></i> Delivery Address</h3>
+              <div class="field" data-field="address">
+                <label for="address">Street Address</label>
+                <input id="address" name="address" type="text" placeholder="221 Fresh Market Ave">
+                <span class="error-msg">Please enter your street address.</span>
+              </div>
+              <div class="field-row">
+                <div class="field" data-field="city">
+                  <label for="city">City</label>
+                  <input id="city" name="city" type="text" placeholder="Springfield">
+                  <span class="error-msg">Please enter your city.</span>
+                </div>
+                <div class="field" data-field="zip">
+                  <label for="zip">ZIP / Postal Code</label>
+                  <input id="zip" name="zip" type="text" placeholder="62704">
+                  <span class="error-msg">Please enter a valid ZIP code.</span>
+                </div>
+              </div>
+              <div class="field" data-field="country">
+                <label for="country">Country</label>
+                <select id="country" name="country">
+                  <option value="">Select country</option>
+                  <option>United States</option>
+                  <option>Canada</option>
+                  <option>United Kingdom</option>
+                  <option>Australia</option>
+                  <option>Pakistan</option>
+                </select>
+                <span class="error-msg">Please select your country.</span>
+              </div>
+            </div>
+
+            <div class="checkout-section">
+              <h3><i class="fa-solid fa-truck-fast"></i> Delivery Method</h3>
+              <div class="payment-methods">
+                <label class="radio-card">
+                  <input type="radio" name="delivery" value="standard" checked>
+                  <span class="radio-card__meta"><strong>Standard Delivery</strong><span>Arrives within 2–4 hours &middot; Free over $50</span></span>
+                  <strong data-delivery-price>$4.99</strong>
+                </label>
+                <label class="radio-card">
+                  <input type="radio" name="delivery" value="express">
+                  <span class="radio-card__meta"><strong>Express Delivery</strong><span>Arrives within 60 minutes</span></span>
+                  <strong>$7.99</strong>
+                </label>
+                <label class="radio-card">
+                  <input type="radio" name="delivery" value="scheduled">
+                  <span class="radio-card__meta"><strong>Scheduled Delivery</strong><span>Pick a convenient time slot</span></span>
+                  <strong>$2.99</strong>
+                </label>
+              </div>
+            </div>
+
+            <div class="checkout-section">
+              <h3><i class="fa-solid fa-credit-card"></i> Payment Method</h3>
+              <div class="payment-methods">
+                <label class="radio-card">
+                  <input type="radio" name="payment" value="card" checked data-payment-option>
+                  <span class="radio-card__meta"><strong>Credit / Debit Card</strong><span>Visa, Mastercard, Amex</span></span>
+                  <i class="fa-brands fa-cc-visa" style="font-size:1.4rem;color:var(--color-text-muted)"></i>
+                </label>
+                <label class="radio-card">
+                  <input type="radio" name="payment" value="paypal" data-payment-option>
+                  <span class="radio-card__meta"><strong>PayPal</strong><span>Pay securely via PayPal</span></span>
+                  <i class="fa-brands fa-cc-paypal" style="font-size:1.4rem;color:var(--color-text-muted)"></i>
+                </label>
+                <label class="radio-card">
+                  <input type="radio" name="payment" value="cod" data-payment-option>
+                  <span class="radio-card__meta"><strong>Cash on Delivery</strong><span>Pay when your order arrives</span></span>
+                  <i class="fa-solid fa-money-bill-wave" style="font-size:1.2rem;color:var(--color-text-muted)"></i>
+                </label>
+              </div>
+
+              <div data-card-fields style="margin-top:var(--sp-5)">
+                <div class="field" data-field="cardNumber">
+                  <label for="cardNumber">Card Number</label>
+                  <input id="cardNumber" name="cardNumber" type="text" placeholder="1234 5678 9012 3456" maxlength="19">
+                  <span class="error-msg">Please enter a valid 16-digit card number.</span>
+                </div>
+                <div class="field-row">
+                  <div class="field" data-field="cardExpiry">
+                    <label for="cardExpiry">Expiry (MM/YY)</label>
+                    <input id="cardExpiry" name="cardExpiry" type="text" placeholder="MM/YY" maxlength="5">
+                    <span class="error-msg">Please enter a valid expiry date.</span>
+                  </div>
+                  <div class="field" data-field="cardCvv">
+                    <label for="cardCvv">CVV</label>
+                    <input id="cardCvv" name="cardCvv" type="text" placeholder="123" maxlength="4">
+                    <span class="error-msg">Please enter a valid CVV.</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="checkout-section">
+              <h3><i class="fa-regular fa-note-sticky"></i> Order Notes <span class="text-muted" style="font-weight:400;font-size:var(--fs-xs)">(optional)</span></h3>
+              <textarea name="notes" rows="3" placeholder="Delivery instructions, gate code, preferred contact method…" style="width:100%;border:1.5px solid var(--color-border);border-radius:var(--radius-sm);padding:0.8rem 1rem"></textarea>
+            </div>
+          </div>
+
+          <div>
+            <div class="summary-card" style="position:sticky;top:calc(var(--header-h) + 20px)">
+              <h3>Order Summary</h3>
+              <div class="checkout-order-items" data-checkout-items></div>
+              <div class="summary-row"><span>Subtotal</span><span data-co-subtotal>$0.00</span></div>
+              <div class="summary-row"><span>Discount</span><span class="discount-val" data-co-discount>−$0.00</span></div>
+              <div class="summary-row"><span>Delivery</span><span data-co-shipping>$0.00</span></div>
+              <div class="summary-row"><span>Estimated Tax</span><span data-co-tax>$0.00</span></div>
+              <div class="summary-row total"><span>Total</span><span data-co-total>$0.00</span></div>
+              <button type="submit" class="btn btn-primary btn-block"><i class="fa-solid fa-lock"></i> Place Order</button>
+              <p class="place-order-note">By placing your order you agree to Smart Mart's Terms &amp; Conditions and Privacy Policy.</p>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</main>
+
+<div id="site-footer"></div>
+<div class="toast-stack" id="toast-stack" aria-live="polite"></div>
+
+<script type="module" src="assets/js/main.js"></script>
+<script type="module" src="assets/js/pages/checkout.js"></script>
+</body>
+</html>

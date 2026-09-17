@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact Us — Smart Mart</title>
+<meta name="description" content="Get in touch with Smart Mart — customer support, store locations and business hours.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛒</text></svg>">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<link rel="stylesheet" href="assets/css/base.css">
+<link rel="stylesheet" href="assets/css/layout.css">
+<link rel="stylesheet" href="assets/css/components.css">
+<link rel="stylesheet" href="assets/css/animations.css">
+<link rel="stylesheet" href="assets/css/pages.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<div id="site-header"></div>
+
+<main id="main">
+  <div class="page-header">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="index.html">Home</a><span class="sep">/</span><span class="current">Contact Us</span>
+      </nav>
+      <h1>Contact Us</h1>
+      <p>Questions, feedback or need a hand with an order? We're here to help.</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="container">
+      <div class="contact-layout">
+        <div class="contact-info-card" data-reveal="left">
+          <div class="contact-info-card__item">
+            <i class="fa-solid fa-location-dot"></i>
+            <div><strong>Visit a Branch</strong><span data-contact-address>221 Fresh Market Ave, Springfield</span></div>
+          </div>
+          <div class="contact-info-card__item">
+            <i class="fa-solid fa-phone"></i>
+            <div><strong>Call Us</strong><span data-contact-phone>+1 (555) 010-2024</span></div>
+          </div>
+          <div class="contact-info-card__item">
+            <i class="fa-solid fa-envelope"></i>
+            <div><strong>Email Us</strong><span>support@smartmart.example</span></div>
+          </div>
+          <div class="contact-info-card__item">
+            <i class="fa-solid fa-clock"></i>
+            <div><strong>Hours</strong><span data-contact-hours>Mon – Sun, 7am – 11pm</span></div>
+          </div>
+          <div class="contact-map"><img src="https://images.unsplash.com/photo-1524661135-423995f22d0b?auto=format&fit=crop&w=800&q=70" alt="Map placeholder near Smart Mart"></div>
+        </div>
+
+        <div data-reveal="right">
+          <div class="account-card">
+            <div class="account-card__head"><div><h3>Send Us a Message</h3><p>We typically reply within one business day</p></div></div>
+
+            <div class="alert-banner success" data-contact-success hidden><i class="fa-solid fa-circle-check"></i><span>Thanks! Your message has been sent — our support team will get back to you shortly.</span></div>
+
+            <form data-contact-form novalidate>
+              <div class="field-row">
+                <div class="field" data-field="name">
+                  <label for="name">Full Name</label>
+                  <input id="name" name="name" type="text" placeholder="Jane Doe">
+                  <span class="error-msg">Please enter your name.</span>
+                </div>
+                <div class="field" data-field="email">
+                  <label for="email">Email Address</label>
+                  <input id="email" name="email" type="email" placeholder="jane@example.com">
+                  <span class="error-msg">Please enter a valid email address.</span>
+                </div>
+              </div>
+              <div class="field" data-field="subject">
+                <label for="subject">Subject</label>
+                <select id="subject" name="subject">
+                  <option value="">Select a topic</option>
+                  <option>Order Inquiry</option>
+                  <option>Delivery Issue</option>
+                  <option>Returns &amp; Refunds</option>
+                  <option>Product Feedback</option>
+                  <option>Other</option>
+                </select>
+                <span class="error-msg">Please select a subject.</span>
+              </div>
+              <div class="field" data-field="message">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" rows="5" placeholder="How can we help?"></textarea>
+                <span class="error-msg">Please enter a message (at least 10 characters).</span>
+              </div>
+              <button type="submit" class="btn btn-primary btn-lg"><i class="fa-solid fa-paper-plane"></i> Send Message</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<div id="site-footer"></div>
+<div class="toast-stack" id="toast-stack" aria-live="polite"></div>
+
+<script type="module" src="assets/js/main.js"></script>
+<script type="module" src="assets/js/pages/contact.js"></script>
+</body>
+</html>

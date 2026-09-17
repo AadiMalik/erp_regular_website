@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Your Cart — Smart Mart</title>
+<meta name="description" content="Review your Smart Mart cart, apply a coupon and proceed to checkout.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛒</text></svg>">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<link rel="stylesheet" href="assets/css/base.css">
+<link rel="stylesheet" href="assets/css/layout.css">
+<link rel="stylesheet" href="assets/css/components.css">
+<link rel="stylesheet" href="assets/css/animations.css">
+<link rel="stylesheet" href="assets/css/pages.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<div id="site-header"></div>
+
+<main id="main">
+  <div class="page-header">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="index.html">Home</a><span class="sep">/</span><span class="current">Cart</span>
+      </nav>
+      <h1>Your Shopping Cart</h1>
+    </div>
+  </div>
+
+  <div class="section" data-cart-page>
+    <div class="container">
+
+      <div data-cart-empty hidden class="cart-empty">
+        <i class="fa-solid fa-cart-shopping"></i>
+        <h2>Your cart is empty</h2>
+        <p class="text-muted" style="margin:var(--sp-3) 0 var(--sp-5)">Looks like you haven't added anything yet. Let's fix that.</p>
+        <a href="shop.html" class="btn btn-primary">Start Shopping</a>
+      </div>
+
+      <div class="cart-layout" data-cart-content hidden>
+        <div>
+          <div class="cart-table-wrap">
+            <table class="cart-table">
+              <thead>
+                <tr><th>Product</th><th>Price</th><th>Quantity</th><th>Subtotal</th><th></th></tr>
+              </thead>
+              <tbody data-cart-tbody></tbody>
+            </table>
+          </div>
+          <div class="cart-mobile-list" data-cart-mobile-list></div>
+
+          <div style="margin-top:var(--sp-6);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:var(--sp-3)">
+            <a href="shop.html" class="btn btn-outline"><i class="fa-solid fa-arrow-left"></i> Continue Shopping</a>
+            <button class="btn btn-ghost" data-clear-cart><i class="fa-solid fa-trash-can"></i> Clear Cart</button>
+          </div>
+        </div>
+
+        <div class="summary-card">
+          <h3>Order Summary</h3>
+
+          <label style="font-size:var(--fs-sm);font-weight:600;display:block;margin-bottom:8px">Have a coupon code?</label>
+          <div class="coupon-row">
+            <input type="text" placeholder="e.g. SAVE10" data-coupon-input>
+            <button class="btn btn-outline btn-sm" data-coupon-apply>Apply</button>
+          </div>
+          <p class="coupon-msg" data-coupon-msg></p>
+
+          <div data-summary-rows>
+            <div class="summary-row"><span>Subtotal</span><span data-sum-subtotal>$0.00</span></div>
+            <div class="summary-row"><span>Discount</span><span class="discount-val" data-sum-discount>−$0.00</span></div>
+            <div class="summary-row"><span>Shipping</span><span data-sum-shipping>$0.00</span></div>
+            <div class="summary-row"><span>Estimated Tax (5%)</span><span data-sum-tax>$0.00</span></div>
+            <div class="summary-row total"><span>Total</span><span data-sum-total>$0.00</span></div>
+          </div>
+
+          <a href="checkout.html" class="btn btn-primary btn-block">Proceed to Checkout <i class="fa-solid fa-arrow-right"></i></a>
+
+          <div class="trust-badges">
+            <div><i class="fa-solid fa-lock"></i>Secure Checkout</div>
+            <div><i class="fa-solid fa-truck-fast"></i>Fast Delivery</div>
+            <div><i class="fa-solid fa-rotate-left"></i>Easy Returns</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<div id="site-footer"></div>
+<div class="toast-stack" id="toast-stack" aria-live="polite"></div>
+<div class="modal-overlay" id="modal-root"><div class="modal-box"></div></div>
+<div class="modal-overlay" id="lightbox-root"><div class="modal-box" style="max-width:1000px;background:transparent;box-shadow:none"></div></div>
+
+<script type="module" src="assets/js/main.js"></script>
+<script type="module" src="assets/js/pages/cart.js"></script>
+</body>
+</html>

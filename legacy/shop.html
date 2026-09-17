@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shop All Products — Smart Mart</title>
+<meta name="description" content="Browse fresh produce, dairy, bakery, beverages, snacks and everyday essentials at Smart Mart. Filter by category, brand, price and more.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛒</text></svg>">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<link rel="stylesheet" href="assets/css/base.css">
+<link rel="stylesheet" href="assets/css/layout.css">
+<link rel="stylesheet" href="assets/css/components.css">
+<link rel="stylesheet" href="assets/css/animations.css">
+<link rel="stylesheet" href="assets/css/pages.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<div id="site-header"></div>
+
+<main id="main">
+  <div class="page-header">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="index.html">Home</a><span class="sep">/</span><span class="current">Shop</span>
+      </nav>
+      <h1>Shop All Products</h1>
+      <p data-shop-desc>Fresh groceries and everyday essentials, all in one place.</p>
+    </div>
+  </div>
+
+  <div class="section" style="padding-top:var(--sp-7)">
+    <div class="container">
+      <div class="shop-layout">
+
+        <!-- Desktop filters -->
+        <aside class="filters-panel" data-filters-panel>
+          <!-- injected by shop.js -->
+        </aside>
+
+        <div class="shop-results">
+          <div class="active-filters" data-active-filters></div>
+
+          <div class="shop-toolbar">
+            <p class="result-count"><strong data-result-count>0</strong> products found</p>
+            <div class="toolbar-right">
+              <button class="btn btn-outline btn-sm mobile-filter-btn" data-mobile-filter-open><i class="fa-solid fa-sliders"></i> Filters</button>
+              <div class="view-toggle" data-view-toggle>
+                <button type="button" data-view-btn="grid" class="active" aria-label="Grid view" aria-pressed="true"><i class="fa-solid fa-grip"></i></button>
+                <button type="button" data-view-btn="list" aria-label="List view" aria-pressed="false"><i class="fa-solid fa-list"></i></button>
+              </div>
+              <div class="dropdown sort-dropdown" data-sort-dropdown>
+                <button class="dropdown__trigger" data-sort-trigger>
+                  <i class="fa-solid fa-arrow-down-wide-short"></i> <span data-sort-label>Sort: Featured</span>
+                </button>
+                <div class="dropdown__menu">
+                  <button data-sort-value="featured" class="active">Featured</button>
+                  <button data-sort-value="newest">Newest</button>
+                  <button data-sort-value="bestselling">Best Selling</button>
+                  <button data-sort-value="rating">Top Rated</button>
+                  <button data-sort-value="price-asc">Price: Low to High</button>
+                  <button data-sort-value="price-desc">Price: High to Low</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="product-grid stagger" data-shop-grid></div>
+
+          <div class="no-results" data-no-results hidden>
+            <i class="fa-solid fa-basket-shopping"></i>
+            <h3>No products match your filters</h3>
+            <p class="text-muted">Try clearing some filters or searching for something else.</p>
+            <button class="btn btn-primary" data-clear-filters style="margin-top:var(--sp-4)">Clear All Filters</button>
+          </div>
+
+          <div class="load-more-wrap" data-load-more-wrap>
+            <div class="load-more-progress"><span data-load-progress></span></div>
+            <p class="text-muted" style="font-size:var(--fs-xs)"><span data-load-shown>0</span> of <span data-load-total>0</span> products shown</p>
+            <button class="btn btn-outline" data-load-more>Load More Products</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<!-- Mobile filter drawer -->
+<div class="drawer-overlay" data-mobile-filter-overlay></div>
+<aside class="drawer-right" data-mobile-filter-drawer aria-label="Filters">
+  <div class="mobile-drawer__head">
+    <strong><i class="fa-solid fa-sliders"></i>&nbsp; Filters</strong>
+    <button class="btn-icon" data-mobile-filter-close aria-label="Close filters"><i class="fa-solid fa-xmark"></i></button>
+  </div>
+  <div style="padding: 0 var(--sp-5) var(--sp-5); overflow-y:auto; flex:1;" data-filters-panel-mobile></div>
+  <div style="padding: var(--sp-5); border-top:1px solid var(--color-border)">
+    <button class="btn btn-primary btn-block" data-mobile-filter-apply>Show Results</button>
+  </div>
+</aside>
+
+<div id="site-footer"></div>
+<div class="toast-stack" id="toast-stack" aria-live="polite"></div>
+<div class="modal-overlay" id="modal-root"><div class="modal-box"></div></div>
+<div class="modal-overlay" id="lightbox-root"><div class="modal-box" style="max-width:1000px;background:transparent;box-shadow:none"></div></div>
+
+<script type="module" src="assets/js/main.js"></script>
+<script type="module" src="assets/js/pages/shop.js"></script>
+</body>
+</html>

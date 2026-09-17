@@ -1,0 +1,77 @@
+/* ==========================================================================
+   Theme5 — "Atelier" — clean premium minimal commerce, quiet neutral
+   palette. Scoped under [data-theme="theme5"] on <html>. Pattern follows
+   theme1.css; theme5's own Header/Footer/Hero/ProductCard/CategoryCard
+   components (src/themes/theme5/components/) carry their own scoped styles
+   on top of these shared-page tokens.
+   ========================================================================== */
+
+[data-theme='theme5'] {
+  --color-primary: #14181A;
+  --color-primary-dark: #000000;
+  --color-primary-darker: #000000;
+  --color-primary-light: #EFEDE7;
+  --color-primary-lighter: #F8F7F3;
+
+  --color-secondary: #14181A;
+  --color-accent: #A6803C;
+  --color-accent-dark: #8A6A2F;
+  --color-accent-light: #F1E9D6;
+  --color-gold: #A6803C;
+
+  --color-danger: #B3261E;
+  --color-danger-light: #F6E3E1;
+  --color-success: #3A6B4C;
+  --color-info: #35506E;
+
+  --color-bg: #FAF9F6;
+  --color-bg-soft: #F3F1EB;
+  --color-bg-alt: #ECE9E1;
+  --color-surface: #FFFFFF;
+  --color-border: #E4E0D6;
+  --color-border-strong: #CFC9BB;
+
+  --color-text: #1B1D1E;
+  --color-text-soft: #3A3D3E;
+  --color-text-muted: #6E6A62;
+  --color-text-faint: #9C968A;
+  --color-text-inverse: #FAF9F6;
+
+  --shadow-sm: 0 1px 3px rgba(20, 24, 26, 0.05);
+  --shadow-md: 0 14px 34px rgba(20, 24, 26, 0.08);
+  --shadow-lg: 0 30px 70px rgba(20, 24, 26, 0.12);
+  --shadow-glow: 0 10px 26px rgba(166, 128, 60, 0.18);
+
+  /* Typography — a single quiet sans, wide tracking on display */
+  --font-display: 'Montserrat', 'Segoe UI', sans-serif;
+  --font-body: 'Montserrat', 'Segoe UI', sans-serif;
+  --lh-heading: 1.18;
+  --lh-body: 1.75;
+
+  /* Shared-page controls — hairline, minimal chrome */
+  --radius-btn: var(--radius-pill);
+  --radius-card: 2px;
+  --radius-field: 2px;
+  --radius-panel: 6px;
+  --shadow-card: none;
+  --btn-weight: 500;
+
+  /* Motion — slow, deliberate */
+  --ease-premium: cubic-bezier(0.16, 1, 0.3, 1);
+  --dur-fast: 240ms;
+  --dur-base: 480ms;
+  --dur-slow: 760ms;
+
+  --container-max: 1280px;
+}
+
+/* Category rail — a centered row of rings instead of the default photo-tile
+   grid, to match theme5's minimal boutique presentation everywhere
+   CategoryGrid is used (Home, Categories page). */
+[data-theme='theme5'] .category-grid {
+  display: flex; flex-wrap: wrap; justify-content: center;
+  gap: var(--sp-7) var(--sp-6);
+}
+[data-theme='theme5'] .category-grid > * { width: 96px; }
+
+[data-theme='theme5'] .product-grid { gap: var(--sp-7) var(--sp-6); }

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Order Details — Smart Mart</title>
+<meta name="description" content="View your Smart Mart order details, items, delivery tracking and totals.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛒</text></svg>">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<link rel="stylesheet" href="assets/css/base.css">
+<link rel="stylesheet" href="assets/css/layout.css">
+<link rel="stylesheet" href="assets/css/components.css">
+<link rel="stylesheet" href="assets/css/animations.css">
+<link rel="stylesheet" href="assets/css/pages.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<div id="site-header"></div>
+
+<main id="main">
+  <div class="page-header">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="index.html">Home</a><span class="sep">/</span><a href="orders.html">My Orders</a><span class="sep">/</span><span class="current">Order Details</span>
+      </nav>
+      <h1>Order <span data-order-number-title>#—</span></h1>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="container">
+
+      <div data-order-not-found hidden class="cart-empty">
+        <i class="fa-solid fa-circle-exclamation"></i>
+        <h2>Order not found</h2>
+        <p class="text-muted" style="margin:var(--sp-3) 0 var(--sp-5)">We couldn't find this order on your account.</p>
+        <a href="orders.html" class="btn btn-primary">Back to My Orders</a>
+      </div>
+
+      <div class="account-layout" data-order-content hidden>
+        <nav class="account-nav" data-account-nav>
+          <div class="account-nav__user">
+            <span class="account-nav__avatar" data-nav-avatar></span>
+            <div><strong data-nav-name></strong><span data-nav-email></span></div>
+          </div>
+          <a href="account.html"><i class="fa-regular fa-user"></i> Profile</a>
+          <a href="account-edit.html"><i class="fa-solid fa-pen"></i> Edit Profile</a>
+          <a href="orders.html" class="active"><i class="fa-solid fa-bag-shopping"></i> My Orders</a>
+          <a href="account-password.html"><i class="fa-solid fa-lock"></i> Change Password</a>
+          <hr>
+          <button type="button" class="danger" data-nav-logout><i class="fa-solid fa-right-from-bracket"></i> Logout</button>
+        </nav>
+
+        <div class="order-details-grid">
+          <div>
+            <div class="account-card">
+              <div class="account-card__head">
+                <div>
+                  <strong data-order-number style="font-size:var(--fs-md)">#SM-000000</strong>
+                  <p data-order-placed style="margin-top:4px">Placed on —</p>
+                </div>
+                <div style="display:flex;gap:8px;flex-wrap:wrap" data-order-badges></div>
+              </div>
+              <div data-order-items></div>
+            </div>
+
+            <div class="account-card" id="tracking">
+              <div class="account-card__head"><div><h3>Order Tracking</h3></div></div>
+              <div class="order-timeline" data-order-timeline></div>
+            </div>
+          </div>
+
+          <div>
+            <div class="summary-card" style="position:sticky;top:calc(var(--header-h) + 20px)">
+              <h3>Order Summary</h3>
+              <div class="summary-row"><span>Subtotal</span><span data-sum-subtotal>$0.00</span></div>
+              <div class="summary-row"><span>Discount</span><span class="discount-val" data-sum-discount>−$0.00</span></div>
+              <div class="summary-row"><span>Delivery</span><span data-sum-shipping>$0.00</span></div>
+              <div class="summary-row"><span>Tax</span><span data-sum-tax>$0.00</span></div>
+              <div class="summary-row total"><span>Total</span><span data-sum-total>$0.00</span></div>
+
+              <div style="margin-top:var(--sp-5);padding-top:var(--sp-5);border-top:1px solid var(--color-border)">
+                <p class="text-muted" style="font-size:var(--fs-xs);text-transform:uppercase;letter-spacing:.05em;margin-bottom:8px">Payment</p>
+                <div style="display:flex;justify-content:space-between;align-items:center"><span data-order-payment-method style="font-size:var(--fs-sm);font-weight:600"></span><span data-order-payment-badge></span></div>
+              </div>
+
+              <div style="margin-top:var(--sp-5);padding-top:var(--sp-5);border-top:1px solid var(--color-border)">
+                <p class="text-muted" style="font-size:var(--fs-xs);text-transform:uppercase;letter-spacing:.05em;margin-bottom:8px">Delivery Address</p>
+                <p data-order-address style="font-size:var(--fs-sm);line-height:1.6"></p>
+              </div>
+
+              <div style="display:flex;flex-direction:column;gap:10px;margin-top:var(--sp-5)">
+                <button type="button" class="btn btn-outline btn-block" data-reorder-btn><i class="fa-solid fa-rotate-right"></i> Reorder</button>
+                <button type="button" class="btn btn-ghost btn-block" style="color:var(--color-danger)" data-cancel-btn hidden><i class="fa-solid fa-xmark"></i> Cancel Order</button>
+                <button type="button" class="btn btn-ghost btn-block" data-return-btn hidden><i class="fa-solid fa-rotate-left"></i> Request Return</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<div id="site-footer"></div>
+<div class="toast-stack" id="toast-stack" aria-live="polite"></div>
+
+<script type="module" src="assets/js/main.js"></script>
+<script type="module" src="assets/js/pages/order-details.js"></script>
+</body>
+</html>
