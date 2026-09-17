@@ -31,21 +31,20 @@ import './styles/pages.css';
 
 import { vReveal } from './composables/useReveal';
 
-// Business-wise website theme + global website settings (name, logo,
-// contact, currency, SEO, favicon, social links), branches, and categories
-// are all fetched from the ERP (business_id from .env) and applied BEFORE
-// the app renders, so there is never a flash of the wrong theme/content -
-// the ERP admin's Business Settings are the only source of truth.
+// Website theme + global website settings (name, logo, contact, currency,
+// SEO, favicon, social links), branches, and categories are all fetched
+// from the ERP and applied BEFORE the app renders, so there is never a
+// flash of the wrong theme/content - the ERP admin settings are the only
+// source of truth.
 async function bootstrap() {
-  const businessId = import.meta.env.VITE_BUSINESS_ID;
   // Pinia doesn't exist yet at this point, so this reads the branch store's
   // own persisted key directly rather than via useBranchStore() - stock is
   // branch-scoped, so the warm-cache call below should already reflect
   // whichever branch (if any) the shopper picked on a previous visit.
   const persistedBranchId = localStorage.getItem('sm_branch') || undefined;
   const [config, settings] = await Promise.all([
-    fetchWebsiteThemeConfig(businessId),
-    fetchWebsiteSettings(businessId),
+    fetchWebsiteThemeConfig(),
+    fetchWebsiteSettings(),
     fetchBranches(), // populates the branches service cache as a side effect
     fetchCategories(), // populates the categories service cache as a side effect
     fetchProducts({ per_page: 100, branch_id: persistedBranchId }), // populates the products service cache as a side effect

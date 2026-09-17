@@ -1,5 +1,5 @@
 // Store branch/location data - fetched from the ERP's public branches API
-// (business_id from .env). Falls back to an empty list on any failure so a
+// Falls back to an empty list on any failure so a
 // down/misconfigured API never breaks the site (per CLAUDE.md #13).
 
 import { http } from './http';
@@ -24,11 +24,8 @@ function mapBranch(b) {
 }
 
 export async function fetchBranches() {
-  const businessId = import.meta.env.VITE_BUSINESS_ID;
-  if (!businessId) return cachedBranches;
-
   try {
-    const { data } = await http.get(`/v1/branches/${businessId}`);
+    const { data } = await http.get('/v1/branches');
     if (data?.Success && Array.isArray(data?.Data)) {
       cachedBranches = data.Data.map(mapBranch);
     }

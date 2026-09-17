@@ -1,9 +1,8 @@
-// Business-wise website theme settings from the ERP (Business Settings >
-// Website Theme). Called once, before the app renders (see main.js), with
-// this storefront's VITE_BUSINESS_ID. Per CLAUDE.md, missing/invalid
-// settings must never break the site, so any failure - network error,
-// unknown business, malformed response - falls back to theme1's own
-// defaults, matching src/styles/themes/theme1.css exactly.
+// Website theme settings from the ERP (Website Theme).
+// Called once, before the app renders (see main.js).
+// Per CLAUDE.md, missing/invalid settings must never break the site,
+// so any failure - network error, malformed response - falls back to
+// theme1's own defaults, matching src/styles/themes/theme1.css exactly.
 
 import { http } from './http';
 
@@ -38,11 +37,9 @@ export const FALLBACK_THEME_CONFIG = {
   },
 };
 
-export async function fetchWebsiteThemeConfig(businessId) {
-  if (!businessId) return FALLBACK_THEME_CONFIG;
-
+export async function fetchWebsiteThemeConfig() {
   try {
-    const { data } = await http.get(`/v1/website-theme/${businessId}`);
+    const { data } = await http.get('/v1/website-theme');
     if (!data?.Success || !data?.Data?.colors) return FALLBACK_THEME_CONFIG;
     return data.Data;
   } catch {

@@ -7,11 +7,8 @@
 import { http } from './http';
 
 export async function fetchPage(slug) {
-  const businessId = import.meta.env.VITE_BUSINESS_ID;
-  if (!businessId) return null;
-
   try {
-    const { data } = await http.get(`/v1/pages/${businessId}/${slug}`);
+    const { data } = await http.get(`/v1/pages/${slug}`);
     if (!data?.Success || !data?.Data?.content) return null;
     return data.Data;
   } catch {

@@ -6,11 +6,8 @@ import { http } from './http';
 import { FAQ_CATEGORIES } from '@/data/faqs';
 
 export async function fetchFaqCategories() {
-  const businessId = import.meta.env.VITE_BUSINESS_ID;
-  if (!businessId) return FAQ_CATEGORIES;
-
   try {
-    const { data } = await http.get(`/v1/faqs/${businessId}`);
+    const { data } = await http.get('/v1/faqs');
     const faqs = data?.Success && Array.isArray(data?.Data) ? data.Data : [];
     if (!faqs.length) return FAQ_CATEGORIES;
 

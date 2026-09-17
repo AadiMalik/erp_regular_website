@@ -1,6 +1,6 @@
 import { http } from './http';
 
-// Global website settings assembled ERP-side from `businesses` (name, logo,
+// Global website settings assembled ERP-side from store identity (name, logo,
 // contact, address), `accounting_settings` (currency) and
 // `website_theme_settings` (favicon, SEO, WhatsApp, hours, free delivery).
 // Fetched once at bootstrap, alongside the website theme config. Social
@@ -28,7 +28,7 @@ export const FALLBACK_WEBSITE_SETTINGS = {
     keywords: null,
     og_image: null,
   },
-  // Local Dukanaz default; ERP API replaces this with the business
+  // Local Dukanaz default; ERP API replaces this with the configured
   // upload when set, or the platform Dukanaz asset URL when unset.
   favicon: '/favicon/favicon-32.png',
   business_hours: 'Mon – Sun, 7am – 11pm',
@@ -46,9 +46,9 @@ export const FALLBACK_WEBSITE_SETTINGS = {
     swift_code: null,
     instructions: null,
   },
-  // Per-business Google/Facebook Login + CAPTCHA - off/absent until the
-  // business enables and configures each in Settings > Social Login &
-  // Security. Public keys only, never secrets (see App\Models\LoginSecuritySetting).
+  // Google/Facebook Login + CAPTCHA - off/absent until enabled and
+  // configured in Settings > Social Login & Security. Public keys only,
+  // never secrets (see App\Models\LoginSecuritySetting).
   auth: {
     google: { enabled: false, client_id: null },
     facebook: { enabled: false, app_id: null },
@@ -56,10 +56,9 @@ export const FALLBACK_WEBSITE_SETTINGS = {
   },
 };
 
-export async function fetchWebsiteSettings(businessId) {
-  if (!businessId) return FALLBACK_WEBSITE_SETTINGS;
+export async function fetchWebsiteSettings() {
   try {
-    const { data } = await http.get(`/v1/website-settings/${businessId}`);
+    const { data } = await http.get('/v1/website-settings');
     if (!data?.Success || !data?.Data?.business) return FALLBACK_WEBSITE_SETTINGS;
     return data.Data;
   } catch {

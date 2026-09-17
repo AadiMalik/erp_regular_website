@@ -6,15 +6,10 @@ function unwrap(data) {
   return { success: !!data?.Success, message: data?.Message, data: data?.Data };
 }
 
-function businessId() {
-  return import.meta.env.VITE_BUSINESS_ID || '';
-}
 
 export async function applyVoucher({ voucherCode, voucherId, branchId = null } = {}) {
-  const id = businessId();
-  if (!id) return { success: false, message: 'Business is not configured.', data: null };
   try {
-    const { data } = await http.post(`/v1/vouchers/${id}/apply`, {
+    const { data } = await http.post('/v1/vouchers/apply', {
       voucher_code: voucherCode,
       voucher_id: voucherId,
       branch_id: branchId,
@@ -26,10 +21,8 @@ export async function applyVoucher({ voucherCode, voucherId, branchId = null } =
 }
 
 export async function removeVoucher() {
-  const id = businessId();
-  if (!id) return { success: false, message: 'Business is not configured.', data: null };
   try {
-    const { data } = await http.delete(`/v1/vouchers/${id}`);
+    const { data } = await http.delete('/v1/vouchers');
     return unwrap(data);
   } catch (err) {
     return { success: false, message: err?.response?.data?.Message || 'Failed to remove voucher.', data: null };

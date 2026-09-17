@@ -1,5 +1,5 @@
 // Product catalog service - fetched from the ERP's public products API
-// (business_id from .env). Mirrors services/categories.js's pattern:
+// Mirrors services/categories.js's pattern:
 // module-level caches for synchronous lookups (findProductById, PRODUCTS),
 // silent failure with the last-known cache kept intact so a down/
 // misconfigured API never breaks the site (per CLAUDE.md #13).
@@ -73,11 +73,8 @@ function fallbackData() {
 }
 
 export async function fetchProducts(params = {}) {
-  const businessId = import.meta.env.VITE_BUSINESS_ID;
-  if (!businessId) return fallbackData();
-
   try {
-    const { data } = await http.get(`/v1/products/${businessId}`, { params });
+    const { data } = await http.get('/v1/products', { params });
     if (data?.Success && data?.Data) {
       const list = Array.isArray(data.Data.products?.data) ? data.Data.products.data.map(mapProduct) : [];
       cachedProducts = list;
@@ -113,11 +110,10 @@ export async function fetchHomeSections() {
 }
 
 export async function fetchProductBySlug(slug, branchId) {
-  const businessId = import.meta.env.VITE_BUSINESS_ID;
-  if (!businessId || !slug) return null;
+  if (!slug) return null;
 
   try {
-    const { data } = await http.get(`/v1/products/${businessId}/${slug}`, {
+    const { data } = await http.get(`/v1/products/${slug}`, {
       params: branchId ? { branch_id: branchId } : {},
     });
     if (data?.Success && data?.Data) {
@@ -137,11 +133,10 @@ export async function fetchProductBySlug(slug, branchId) {
 // cached - it's a live, branch-scoped figure. Returns [] on any failure so
 // the UI can just render "no breakdown available" rather than erroring.
 export async function fetchStockBreakdown(variationId, branchId) {
-  const businessId = import.meta.env.VITE_BUSINESS_ID;
-  if (!businessId || !variationId || !branchId) return [];
+  if (!variationId || !branchId) return [];
 
   try {
-    const { data } = await http.get(`/v1/products/${businessId}/stock/${variationId}`, {
+    const { data } = await http.get(`/v1/products/stock/${variationId}`, {
       params: { branch_id: branchId },
     });
     return data?.Success && Array.isArray(data.Data) ? data.Data : [];
@@ -164,11 +159,10 @@ export function findProductById(id) {
 // Fire-and-forget share analytics - never blocks or breaks the share action
 // itself if it fails (network hiccup, guest with an expired token, etc.).
 export async function recordProductShare(productId, platform) {
-  const businessId = import.meta.env.VITE_BUSINESS_ID;
-  if (!businessId || !productId || !platform) return;
+  if (!productId || !platform) return;
 
   try {
-    await http.post(`/v1/products/${businessId}/${productId}/share`, { platform });
+    await http.post(`/v1/products/${productId}/share`, { platform });
   } catch (err) {
     console.warn('recordProductShare failed', err);
   }

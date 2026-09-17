@@ -21,12 +21,10 @@ export async function fetchContactInfo() {
 }
 
 export async function fetchSocialLinks() {
-  const businessId = import.meta.env.VITE_BUSINESS_ID;
   let links = [];
 
-  if (businessId) {
-    try {
-      const { data } = await http.get(`/v1/social-links/${businessId}`);
+  try {
+      const { data } = await http.get('/v1/social-links');
       if (data?.Success && Array.isArray(data?.Data)) {
         links = data.Data.map((l) => ({
           id: l.id,
@@ -37,9 +35,8 @@ export async function fetchSocialLinks() {
           displayColor: l.display_color,
         }));
       }
-    } catch {
-      // API unavailable - render no social icons rather than break the site
-    }
+  } catch {
+    // API unavailable - render no social icons rather than break the site
   }
 
   // WhatsApp click-to-chat is a distinct, still-supported field on Website
@@ -62,11 +59,8 @@ export async function fetchSocialLinks() {
 // admin hasn't configured any - callers hide the stats area entirely
 // rather than rendering an empty row.
 export async function fetchHeroStats() {
-  const businessId = import.meta.env.VITE_BUSINESS_ID;
-  if (!businessId) return [];
-
   try {
-    const { data } = await http.get(`/v1/hero-stats/${businessId}`);
+    const { data } = await http.get('/v1/hero-stats');
     return data?.Success && Array.isArray(data?.Data) ? data.Data : [];
   } catch {
     return [];
@@ -81,11 +75,10 @@ export async function fetchHeroStats() {
 // admin hasn't configured any - callers hide the whole block rather than
 // rendering an empty heading/grid.
 export async function fetchContentItems(group) {
-  const businessId = import.meta.env.VITE_BUSINESS_ID;
-  if (!businessId || !group) return [];
+  if (!group) return [];
 
   try {
-    const { data } = await http.get(`/v1/content-items/${businessId}/${group}`);
+    const { data } = await http.get(`/v1/content-items/${group}`);
     return data?.Success && Array.isArray(data?.Data) ? data.Data : [];
   } catch {
     return [];
@@ -99,11 +92,8 @@ export async function fetchWhyShopBenefits() {
 // Curated marketing testimonials (App\Models\WebsiteTestimonial) - distinct
 // from real per-product reviews. Empty/unavailable hides the section.
 export async function fetchTestimonials() {
-  const businessId = import.meta.env.VITE_BUSINESS_ID;
-  if (!businessId) return [];
-
   try {
-    const { data } = await http.get(`/v1/testimonials/${businessId}`);
+    const { data } = await http.get('/v1/testimonials');
     const items = data?.Success && Array.isArray(data?.Data) ? data.Data : [];
     return items.map((t) => ({
       name: t.author_name,
@@ -123,11 +113,8 @@ export async function fetchTestimonials() {
 // admin hasn't configured that type yet, so callers keep their own static
 // fallback content (per CLAUDE.md #13).
 export async function fetchSection(type) {
-  const businessId = import.meta.env.VITE_BUSINESS_ID;
-  if (!businessId) return null;
-
   try {
-    const { data } = await http.get(`/v1/sections/${businessId}/${type}`);
+    const { data } = await http.get(`/v1/sections/${type}`);
     return data?.Success ? (data.Data || null) : null;
   } catch {
     return null;
@@ -159,11 +146,8 @@ export function resolveSecondaryLink(section) {
 }
 
 export async function submitContactMessage({ name, email, phone, subject, message }) {
-  const businessId = import.meta.env.VITE_BUSINESS_ID;
-  if (!businessId) return { success: false, message: 'Contact form is not configured.' };
-
   try {
-    const { data } = await http.post(`/v1/contact/${businessId}`, { name, email, phone, subject, message });
+    const { data } = await http.post('/v1/contact', { name, email, phone, subject, message });
     return { success: !!data?.Success, message: data?.Message };
   } catch (err) {
     return { success: false, message: err?.response?.data?.Message || 'Failed to send message.' };
@@ -171,11 +155,8 @@ export async function submitContactMessage({ name, email, phone, subject, messag
 }
 
 export async function subscribeNewsletter(email, source = 'website') {
-  const businessId = import.meta.env.VITE_BUSINESS_ID;
-  if (!businessId) return { success: false, message: 'Newsletter is not configured.' };
-
   try {
-    const { data } = await http.post(`/v1/newsletter/subscribe/${businessId}`, { email, source });
+    const { data } = await http.post('/v1/newsletter/subscribe', { email, source });
     return { success: !!data?.Success, message: data?.Message };
   } catch (err) {
     return { success: false, message: err?.response?.data?.Message || 'Failed to subscribe.' };

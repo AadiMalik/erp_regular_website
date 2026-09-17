@@ -1,5 +1,5 @@
 // Category + subcategory data - fetched from the ERP's public categories API
-// (business_id from .env), nested parent -> children. Falls back to an empty
+// nested parent -> children. Falls back to an empty
 // list on any failure so a down/misconfigured API never breaks the site
 // (per CLAUDE.md #13).
 
@@ -47,11 +47,8 @@ function mapCategory(c, index) {
 }
 
 export async function fetchCategories() {
-  const businessId = import.meta.env.VITE_BUSINESS_ID;
-  if (!businessId) return cachedCategories;
-
   try {
-    const { data } = await http.get(`/v1/categories/${businessId}`);
+    const { data } = await http.get('/v1/categories');
     if (data?.Success && Array.isArray(data?.Data)) {
       cachedCategories = data.Data.map(mapCategory);
     }
@@ -63,11 +60,8 @@ export async function fetchCategories() {
 }
 
 export async function fetchBrands() {
-  const businessId = import.meta.env.VITE_BUSINESS_ID;
-  if (!businessId) return cachedBrands;
-
   try {
-    const { data } = await http.get(`/v1/brands/${businessId}`);
+    const { data } = await http.get('/v1/brands');
     if (data?.Success && Array.isArray(data?.Data)) {
       cachedBrands = data.Data.map((b) => ({ id: b.id, name: b.name, slug: b.slug, image: b.image || FALLBACK_IMAGE }));
     }

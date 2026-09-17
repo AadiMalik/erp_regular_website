@@ -6,15 +6,10 @@ function unwrap(data) {
   return { success: !!data?.Success, message: data?.Message, data: data?.Data };
 }
 
-function businessId() {
-  return import.meta.env.VITE_BUSINESS_ID || '';
-}
 
 export async function fetchPaymentMethods() {
-  const id = businessId();
-  if (!id) return { success: false, message: 'Business is not configured.', data: null };
   try {
-    const { data } = await http.get(`/v1/payment-methods/${id}`);
+    const { data } = await http.get('/v1/payment-methods');
     return unwrap(data);
   } catch (err) {
     return { success: false, message: err?.response?.data?.Message || 'Failed to load payment methods.', data: null };
@@ -22,10 +17,8 @@ export async function fetchPaymentMethods() {
 }
 
 export async function placeOrder(formData) {
-  const id = businessId();
-  if (!id) return { success: false, message: 'Business is not configured.', data: null };
   try {
-    const { data } = await http.post(`/v1/checkout/${id}`, formData, {
+    const { data } = await http.post('/v1/checkout', formData, {
       headers: { 'Content-Type': 'multipart/form-data' },
       timeout: 60000,
     });
@@ -36,10 +29,8 @@ export async function placeOrder(formData) {
 }
 
 export async function verifyDeliveryAddress({ branchId = null, lat, lng }) {
-  const id = businessId();
-  if (!id) return { success: false, message: 'Business is not configured.', data: null };
   try {
-    const { data } = await http.post(`/v1/checkout/${id}/verify-delivery-address`, {
+    const { data } = await http.post('/v1/checkout/verify-delivery-address', {
       branch_id: branchId || undefined,
       latitude: lat,
       longitude: lng,
@@ -51,10 +42,8 @@ export async function verifyDeliveryAddress({ branchId = null, lat, lng }) {
 }
 
 export async function trackOrder({ orderNumber, email = null, phone = null }) {
-  const id = businessId();
-  if (!id) return { success: false, message: 'Business is not configured.', data: null };
   try {
-    const { data } = await http.post(`/v1/orders/${id}/track`, {
+    const { data } = await http.post('/v1/orders/track', {
       order_number: orderNumber,
       email,
       phone,
