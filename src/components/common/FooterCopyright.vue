@@ -12,15 +12,7 @@ const props = defineProps({
 const site = useWebsiteSettingsStore();
 const year = new Date().getFullYear();
 
-function displayName(name) {
-  const normalized = (name || '').trim();
-  if (normalized === 'Smart' || normalized === 'Smart Mart') {
-    return 'Dukanaz';
-  }
-  return normalized || 'Dukanaz';
-}
-
-const businessName = displayName(site.business.name);
+const businessName = site.business.name;
 </script>
 
 <template>
